@@ -240,31 +240,31 @@ fi
 
 mkdir ramdisk && cd ramdisk
 
-if gzip -t ../ramdisk.packed 2>/dev/null; then
+if gzip -t ./ramdisk.packed 2>/dev/null; then
     pout "ramdisk is gzip format."
     format=gzip
-    gzip -d -c ../ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
+    gzip -d -c ./ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
     unpack_complete
 fi
-if lzma -t ../ramdisk.packed 2>/dev/null; then
+if lzma -t ./ramdisk.packed 2>/dev/null; then
     pout "ramdisk is lzma format."
     format=lzma
-    lzma -d -c ../ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
+    lzma -d -c ./ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
     unpack_complete
 fi
-if xz -t ../ramdisk.packed 2>/dev/null; then
+if xz -t ./ramdisk.packed 2>/dev/null; then
     pout "ramdisk is xz format."
     format=xz
-    xz -d -c ../ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
+    xz -d -c ./ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
     unpack_complete
 fi
-if lzop -t ../ramdisk.packed 2>/dev/null; then
+if lzop -t ./ramdisk.packed 2>/dev/null; then
     pout "ramdisk is lzo format."
     format=lzop
-    lzop -d -c ../ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
+    lzop -d -c ./ramdisk.packed | cpio -i -d -m --no-absolute-filenames 2>/dev/null
     unpack_complete
 fi
-if lz4 -d ../ramdisk.packed 2>/dev/null | cpio -i -d -m --no-absolute-filenames 2>/dev/null; then
+if lz4 -d ./ramdisk.packed 2>/dev/null | cpio -i -d -m --no-absolute-filenames 2>/dev/null; then
     pout "ramdisk is lz4 format."
     format=lz4
 else
