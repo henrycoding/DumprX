@@ -698,8 +698,8 @@ fi
 if [[ "${EXTENSION}" == "pac" ]]; then
 	printf "PAC Archive Detected.\n"
 	python3 ${PACEXTRACTOR} ${FILEPATH} $(pwd)
-	superimage_extract || exit 1
-	exit
+	# superimage_extract || exit 1
+	# exit
 fi
 
 # $(pwd) == "${TMPDIR}"
